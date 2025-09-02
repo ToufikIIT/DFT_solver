@@ -39,9 +39,7 @@ Since the effective potential $V_{\text{eff}}$ depends on the density $n(r)$, wh
 3.  **Solve KS Equations**: Solve the Kohn-Sham equations to find the new orbital energies $\epsilon$ and wavefunctions $u(r)$.
 4.  **Calculate New Density**: Calculate the new electron density from the wavefunctions: $n_{\text{new}}(r) = \sum_i^{\text{occ}} \frac{|u_i(r)|^2}{4\pi r^2}$.
 5.  **Check for Convergence**: Compare $n_{\text{new}}(r)$ with the previous density $n(r)$. If they are sufficiently close, the cycle has converged.
-6.  **Mix and Repeat**: If not converged, mix the old and new densities $$
-n(r) = \alpha \, n_{\text{new}}(r) + (1 - \alpha) \, n(r)
-$$ and go back to step 2.
+6.  **Mix and Repeat**: If not converged, mix the old and new densities $n_{\text{next}}(r) = \alpha n_{\text{new}}(r) + (1-\alpha)n_{\text{old}}(r)$ and go back to step 2.
 
 ### Local Density Approximation (LDA)
 The exact form of the exchange-correlation (XC) functional is unknown. The LDA is a simple yet effective approximation where the XC energy at a point $r$ is taken to be that of a uniform electron gas with the same density $n(r)$. This code uses the Slater exchange functional, which is the exchange part of the LDA:
